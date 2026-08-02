@@ -9,6 +9,7 @@ public class BankAccount {
     private AccountStatus accountStatus;
     private BigDecimal balance;
 
+    //Constructor for new account
     public BankAccount(String accountId,String customerId,AccountType accountType, AccountStatus accountStatus,BigDecimal balance) {
         this.accountId = accountId;
         this.customerId = customerId;
@@ -17,6 +18,7 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    //Constructor for existing account
     public BankAccount(String customerId, AccountType accountType) {
         this(null, customerId, accountType, AccountStatus.OPEN, BigDecimal.ZERO);
     }
