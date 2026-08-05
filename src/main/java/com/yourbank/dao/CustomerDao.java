@@ -7,4 +7,5 @@ public interface CustomerDao {
     Optional<Customer> getCustomerByUsername(String username);
     void updateCustomer(Customer customer);
     Customer registerCustomer(Customer customer);
+    Optional<Customer> getCustomerByEmail(String email);
 }

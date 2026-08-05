@@ -104,4 +104,28 @@ public class PostgresCustomerDao implements CustomerDao {
             throw new RuntimeException("Failed to register customer", e);
         }
     }
+
+    @Override
+    public Optional<Customer> getCustomerByEmail(String email) {
+        String sql = "SELECT * FROM customers WHERE email =?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)){
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                String customerId = String.valueOf(rs.getInt("customerid"));
+                String firstName =rs.getString("firstname");
+                String lastName = rs.getString("lastname");
+                String hashedPassword = rs.getString("hashedpassword");
+                String username = rs.getString("username");
+                Customer customer = new Customer(customerId,firstName,lastName,username,hashedPassword,email);
+
+                return Optional.of(customer);
+            }else{
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Failed to get customer by email", e);
+        }
+    }
 }
