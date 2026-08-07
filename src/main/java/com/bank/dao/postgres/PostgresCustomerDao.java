@@ -1,10 +1,9 @@
-package com.yourbank.dao.postgres;
+package com.bank.dao.postgres;
 
-import com.yourbank.config.DatabaseConnection;
-import com.yourbank.dao.CustomerDao;
-import com.yourbank.model.Customer;
+import com.bank.config.DatabaseConnection;
+import com.bank.dao.CustomerDao;
+import com.bank.model.Customer;
 
-import javax.swing.text.html.Option;
 import java.sql.*;
 import java.util.Optional;
 

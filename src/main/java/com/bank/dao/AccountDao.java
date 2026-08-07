@@ -1,9 +1,7 @@
-package com.yourbank.dao;
+package com.bank.dao;
 
-import com.yourbank.model.AccountStatus;
-import com.yourbank.model.BankAccount;
+import com.bank.model.BankAccount;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 

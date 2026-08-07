@@ -1,10 +1,10 @@
 // ConsoleApp.java
-package com.yourbank.console;
+package com.bank.console;
 
-import com.yourbank.model.*;
-import com.yourbank.service.CustomerService;
-import com.yourbank.service.AccountService;
-import com.yourbank.service.TransactionService;
+import com.bank.model.*;
+import com.bank.service.CustomerService;
+import com.bank.service.AccountService;
+import com.bank.service.TransactionService;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -49,10 +49,10 @@ public class ConsoleApp {
                 case "2":
                     // login
                     System.out.print("Enter your username: ");
-                    username = scanner.nextLine();
+                    String customerUsername = scanner.nextLine();
                     System.out.print("Enter your password:");
-                    password = scanner.nextLine();
-                    Optional<Customer> customer = customerService.login(username, password);
+                    String customerPassword = scanner.nextLine();
+                    Optional<Customer> customer = customerService.login(customerUsername, customerPassword);
                     //if customer exists
                     if(customer.isPresent()) {
                         //fetch customer

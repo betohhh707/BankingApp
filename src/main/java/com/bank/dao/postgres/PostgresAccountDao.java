@@ -1,11 +1,10 @@
-package com.yourbank.dao.postgres;
+package com.bank.dao.postgres;
 
-import com.yourbank.config.DatabaseConnection;
-import com.yourbank.dao.AccountDao;
-import com.yourbank.model.BankAccount;
-import com.yourbank.model.AccountType;
-import com.yourbank.model.AccountStatus;
-import com.yourbank.model.Customer;
+import com.bank.config.DatabaseConnection;
+import com.bank.dao.AccountDao;
+import com.bank.model.BankAccount;
+import com.bank.model.AccountType;
+import com.bank.model.AccountStatus;
 
 import java.math.BigDecimal;
 import java.sql.*;

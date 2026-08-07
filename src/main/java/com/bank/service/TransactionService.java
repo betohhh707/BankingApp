@@ -1,12 +1,11 @@
-package com.yourbank.service;
+package com.bank.service;
 
-import com.yourbank.dao.AccountDao;
-import com.yourbank.dao.TransactionDao;
-import com.yourbank.dao.postgres.PostgresAccountDao;
-import com.yourbank.dao.postgres.PostgresTransactionDao;
-import com.yourbank.model.BankAccount;
-import com.yourbank.model.Transaction;
-import com.yourbank.model.TransactionType;
+import com.bank.config.DaoFactory;
+import com.bank.dao.AccountDao;
+import com.bank.dao.TransactionDao;
+import com.bank.model.BankAccount;
+import com.bank.model.Transaction;
+import com.bank.model.TransactionType;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -15,8 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class TransactionService {
-    private AccountDao accountDao = new PostgresAccountDao();
-    private TransactionDao transactionDao = new PostgresTransactionDao();
+    private AccountDao accountDao = DaoFactory.getAccountDao();
+    private TransactionDao transactionDao = DaoFactory.getTransactionDao();
     private AccountService accountService = new AccountService();
 
     //deposits for existing account compares deposit it amount so amount is not negative

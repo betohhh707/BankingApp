@@ -1,22 +1,29 @@
-package com.yourbank.service;
+package com.bank.service;
 
-import com.yourbank.dao.AccountDao;
-import com.yourbank.dao.CustomerDao;
-import com.yourbank.dao.postgres.PostgresAccountDao;
-import com.yourbank.dao.postgres.PostgresCustomerDao;
-import com.yourbank.model.AccountStatus;
-import com.yourbank.model.AccountType;
-import com.yourbank.model.BankAccount;
-import com.yourbank.model.Customer;
+import com.bank.config.DaoFactory;
+import com.bank.dao.AccountDao;
+import com.bank.dao.CustomerDao;
+import com.bank.model.AccountStatus;
+import com.bank.model.AccountType;
+import com.bank.model.BankAccount;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 public class AccountService {
-    private AccountDao accountDao = new PostgresAccountDao();
-    private CustomerDao customerDao = new PostgresCustomerDao();
+    private AccountDao accountDao;
+    private CustomerDao customerDao;
 
+    public AccountService() {
+        this.accountDao = DaoFactory.getAccountDao();
+        this.customerDao = DaoFactory.getCustomerDao();
+    }
+
+    public AccountService(AccountDao accountDao, CustomerDao customerDao) {
+        this.accountDao = accountDao;
+        this.customerDao = customerDao;
+    }
     //gets existing account given account and customer id. both ids have to connected to
     //each other otherwise it'll throw and exception or there even is account related to account id
     //returns the account after validation

@@ -1,5 +1,5 @@
-package com.yourbank.dao;
-import com.yourbank.model.Customer;
+package com.bank.dao;
+import com.bank.model.Customer;
 import java.util.Optional;
 
 public interface CustomerDao {

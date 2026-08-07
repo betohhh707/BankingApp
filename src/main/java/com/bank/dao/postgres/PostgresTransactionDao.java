@@ -1,8 +1,8 @@
-package com.yourbank.dao.postgres;
+package com.bank.dao.postgres;
 
-import com.yourbank.config.DatabaseConnection;
-import com.yourbank.dao.TransactionDao;
-import com.yourbank.model.*;
+import com.bank.config.DatabaseConnection;
+import com.bank.dao.TransactionDao;
+import com.bank.model.*;
 
 import java.math.BigDecimal;
 import java.sql.*;

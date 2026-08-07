@@ -1,15 +1,14 @@
-package com.yourbank.service;
+package com.bank.service;
 
-import com.yourbank.dao.CustomerDao;
-import com.yourbank.dao.postgres.PostgresCustomerDao;
-import com.yourbank.model.Customer;
+import com.bank.config.DaoFactory;
+import com.bank.dao.CustomerDao;
+import com.bank.model.Customer;
 import org.mindrot.jbcrypt.BCrypt;
 
-import javax.crypto.spec.OAEPParameterSpec;
 import java.util.Optional;
 
 public class CustomerService {
-    private CustomerDao customerDao = new PostgresCustomerDao();
+    private CustomerDao customerDao = DaoFactory.getCustomerDao();
 
     public Customer registerCustomer(String firstName, String lastName, String username, String rawPassword, String email) {
         if (customerDao.getCustomerByUsername(username).isPresent()) {

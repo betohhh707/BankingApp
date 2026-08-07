@@ -1,4 +1,4 @@
-package com.yourbank.config;
+package com.bank.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

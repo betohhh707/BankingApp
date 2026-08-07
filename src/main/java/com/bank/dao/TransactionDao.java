@@ -1,6 +1,6 @@
-package com.yourbank.dao;
+package com.bank.dao;
 
-import com.yourbank.model.Transaction;
+import com.bank.model.Transaction;
 
 import java.util.List;
 import java.util.Optional;
