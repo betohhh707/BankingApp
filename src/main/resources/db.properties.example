@@ -1,0 +1,4 @@
+db.url=jdbc:postgresql://localhost:5432/banking_app
+db.username=your_postgres_username
+db.password=your_postgres_password
+mongo.uri=mongodb+srv://your_mongo_username:your_mongo_password@your_cluster.mongodb.net/

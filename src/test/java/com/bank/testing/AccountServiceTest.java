@@ -54,18 +54,37 @@ public class AccountServiceTest {
     //using verify
     @Test
     void closeAccount_withZeroBalance_succeedsAndUpdatesStatus(){
-        //building it
+        //building object
         BankAccount testAccount = new BankAccount("1","1",AccountType.CHECKING, AccountStatus.OPEN,BigDecimal.ZERO);
-        //receive it instead of database
+        //receive it here instead of database
         when(accountDao.getAccountById("1")).thenReturn(Optional.of(testAccount));
-        //execute it
+        //execute the behavior
         BankAccount result = accountService.closeAccount("1","1");
-        //making sure it matches to closed
+        //making sure it matches to closed - validation
         assertEquals(AccountStatus.CLOSED,result.getAccountStatus());
-        //checking if operation happened
+        //checking if operation happened - confirming
         verify(accountDao).updateAccount(testAccount);
     }
 
+    //rejecting non-existing customer
     @Test
-    void openAccount_reg
+    void openAccount_RejectNoneExistingCustomer_ThrowsException(){
+        //no building object
+        //fake non-existing account id
+        when(customerDao.getCustomerById("111")).thenReturn(Optional.empty());
+        //throws exception since account id does not exist
+        assertThrows(IllegalArgumentException.class,()->{
+           accountService.openAccount("111",AccountType.CHECKING);
+        });
+    }
+
+    //tests if account exists. Throws exception if it does not
+    @Test
+    void viewAccount_withNonexistentAccount_throwsException(){
+        when(accountDao.getAccountById("999")).thenReturn(Optional.empty());
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            accountService.viewAccount("999", "1");
+        });
+    }
 }

@@ -13,6 +13,7 @@ public class DatabaseConnection {
         Properties props = new Properties();
 
         try {
+            //read text file
             InputStream input = DatabaseConnection.class.getClassLoader().getResourceAsStream("db.properties");
             props.load(input);
         } catch (IOException e) {

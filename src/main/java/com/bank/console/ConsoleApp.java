@@ -16,12 +16,13 @@ public class ConsoleApp {
     private CustomerService customerService = new CustomerService();
     private AccountService accountService = new AccountService();
     private TransactionService transactionService = new TransactionService();
-
+    //method runs the app
     public void run() {
+        //infinite loop
         while (true) {
             System.out.println("1. Register\n2. Login\n3. Exit");
             String choice = scanner.nextLine();
-
+            //user picks 1-3
             switch (choice) {
                 case "1":
                     // Registration
@@ -59,7 +60,7 @@ public class ConsoleApp {
                         Customer loggedInCustomer = customer.get();
                         System.out.println("Login successful! welcome " + loggedInCustomer.getFirstName());
                         boolean loggedIn = true;
-                        //user choices
+                        //user choices if customer doesn't log out
                         while(loggedIn){
                             System.out.println("1. View Accounts\n2. Open Account\n3. Deposit\n4. " +
                                     "Withdraw\n5. Transfer\n6. Transaction History\n7. Close Account\n8. Logout");

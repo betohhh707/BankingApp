@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+//turns generic mongodb connection to usable operations
 public class MongoAccountDao implements AccountDao {
     //create connection objects
     private MongoCollection<Document> accounts = MongoDBConnection.getDatabase().getCollection("accounts");

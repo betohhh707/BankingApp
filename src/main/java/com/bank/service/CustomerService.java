@@ -8,7 +8,15 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.util.Optional;
 
 public class CustomerService {
-    private CustomerDao customerDao = DaoFactory.getCustomerDao();
+    private CustomerDao customerDao;
+    //constructor for the actual app to run
+    public CustomerService(){
+        this.customerDao = DaoFactory.getCustomerDao();
+    }
+    //constructor for the mock to run
+    public CustomerService(CustomerDao customerDao){
+        this.customerDao = customerDao;
+    }
 
     public Customer registerCustomer(String firstName, String lastName, String username, String rawPassword, String email) {
         if (customerDao.getCustomerByUsername(username).isPresent()) {

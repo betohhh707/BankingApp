@@ -14,9 +14,22 @@ import java.util.List;
 import java.util.Optional;
 
 public class TransactionService {
-    private AccountDao accountDao = DaoFactory.getAccountDao();
-    private TransactionDao transactionDao = DaoFactory.getTransactionDao();
-    private AccountService accountService = new AccountService();
+    private AccountDao accountDao;
+    private TransactionDao transactionDao;
+    private AccountService accountService;
+
+    //Constructor for the app
+    public TransactionService(){
+        this.accountDao = DaoFactory.getAccountDao();
+        this.transactionDao = DaoFactory.getTransactionDao();
+        this.accountService = new AccountService();
+    }
+    //constructor for the mock
+    public TransactionService(AccountDao accountDao,TransactionDao transactionDao, AccountService accountService){
+        this.accountDao =accountDao;
+        this.transactionDao=transactionDao;
+        this.accountService=accountService;
+    }
 
     //deposits for existing account compares deposit it amount so amount is not negative
     //update the account using setters and getters and records the transaction
